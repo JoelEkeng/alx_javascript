@@ -1,4 +1,4 @@
 #!/usr/bin/node
-module.exports = function(num1, num2){
-    console.log(num1 + num2);
+const add = (num1, num2) => {
+    return num1 + num2;
 }
