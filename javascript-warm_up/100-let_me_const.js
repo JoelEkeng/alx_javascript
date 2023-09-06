@@ -1,5 +1,3 @@
 let myVar = 89;
-if(myVar == 89){
-    myVar = 333;
-    console.log(myVar);
-}
+myVar = 333;
+console.log(myVar);
