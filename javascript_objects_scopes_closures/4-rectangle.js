@@ -1,53 +1,35 @@
-/**
- * Print a rectangle of X characters with the given width and height.
- *
- * @param {number} width - The width of the rectangle.
- * @param {number} height - The height of the rectangle.
- */
+#!/usr/bin/node
+// create a class with its constructor
 class Rectangle {
     constructor(w, h) {
-      if (w <= 0 || h <= 0 || !Number.isInteger(w) || !Number.isInteger(h)) {
-        // If w or h is <= 0 or not a positive integer, create an empty object
-        return this;
-      } else {
-        // Initialize width and height attributes with the provided values
+      if (w > 0 && h > 0) {
         this.width = w;
         this.height = h;
       }
     }
-  
-    /**
-     * Print a rectangle of X's with the specified height and width.
-     * If both height and width are provided, it will print a rectangle
-     * with the specified dimensions.
-     */
+    //created a print() method using a nested loop to iterate over the rows & columns of the rectangle.
+    //adding an 'X' character.
     print() {
-      // Check if both height and width are defined
-      if (this.height && this.width) {
-        // Loop through each row
-        for (let i = 0; i < this.height; i++) {
-          // Print a row of X's with the specified width
-          console.log('X'.repeat(this.width));
+      for (let i = 0; i < this.height; i++) {
+        let row = "";
+        for (let j = 0; j < this.width; j++) {
+          row += "X";
         }
+        console.log(row);
       }
     }
   
+    //Exchanging the width and the height
     rotate() {
-      // Check if both height and width are defined
-      if (this.height && this.width) {
-        // Loop through each row
-        for (let i = 0; i < this.width; i++) {
-          // Print a column of X's with the specified height
-          console.log('X'.repeat(this.height));
-        }
-      }
+      [this.width, this.height] = [this.height, this.width];
     }
-
+  
+    //Double the width & height by 2
     double() {
       this.width *= 2;
       this.height *= 2;
     }
   }
   
+  // create a module for exports
   module.exports = Rectangle;
-  
