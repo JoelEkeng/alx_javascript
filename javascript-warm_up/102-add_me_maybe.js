@@ -1,6 +1,5 @@
-function addMeMaybe(number, theFunction){
-    for (let i = 0; i < number; number++){
-        number ++;
+function addMeMaybe(number, theFunction){{
+        number += 1;
         theFunction();
     }
 }
