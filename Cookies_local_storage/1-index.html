@@ -10,6 +10,9 @@
         <input id="firstname" type="text" placeholder="Firstname" required>
         <input id="email" type="email" placeholder="Email" required>
         <button id="loginButton">Log me in</button>
+        <h1>Cookies</h1>
+        <button id="showCookiesButton">Show the cookies</button>
+
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const loginButton = document.getElementById('loginButton');
@@ -28,14 +31,7 @@
                     document.cookie = `email=${emailValue}; expires=${expires}`;
                 });
             });
-        </script>
-    </div>
-
-    <div>
-        <h1>Cookies</h1>
-        <button id="showCookiesButton">Show the cookies</button>
-
-        <script>
+            
             document.addEventListener('DOMContentLoaded', function () {
                 const showCookiesButton = document.getElementById('showCookiesButton');
 
@@ -56,6 +52,5 @@
                 });
             });
         </script>
-    </div>
 </body>
 </html>

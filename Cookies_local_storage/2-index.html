@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set Cookies</title>
+</head>
+<body>
+    <div>
+        <h1>Login to the website</h1>
+        <input id="firstname" type="text" placeholder="Firstname" required>
+        <input id="email" type="email" placeholder="Email" required>
+        <button id="loginButton">Log me in</button>
+        <h1>Cookies</h1>
+        <button id="showCookiesButton">Show the cookies</button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const loginButton = document.getElementById('loginButton');
+
+                loginButton.addEventListener('click', function () {
+                    const firstnameValue = document.getElementById('firstname').value;
+                    const emailValue = document.getElementById('email').value;
+
+                    const expirationDate = new Date();
+                    expirationDate.setDate(expirationDate.getDate() + 10);
+
+                    // Convert the expiration date to a UTC string
+                    const expires = expirationDate.toUTCString()
+
+                    document.cookie = `firstname=${firstnameValue}; expires=${expires}`;
+                    document.cookie = `email=${emailValue}; expires=${expires}`;
+                });
+            });
+            
+            document.addEventListener('DOMContentLoaded', function () {
+                const showCookiesButton = document.getElementById('showCookiesButton');
+
+                showCookiesButton.addEventListener('click', function () {
+                    const cookies = document.cookie.split(';');
+                    const paragraph = document.createElement('p');
+                    let cookieMessage = 'Cookies: ';
+
+                    for (const cookie of cookies) {
+                        const [name, value] = cookie.trim().split('=');
+                        cookieMessage += `${name}: ${value}, `;
+                    }
+
+                    cookieMessage = cookieMessage.slice(0, -2);
+
+                    paragraph.textContent = cookieMessage;
+                    document.body.appendChild(paragraph);
+                });
+            });
+        </script>
+</body>
+</html>
