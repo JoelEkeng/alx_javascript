@@ -5,7 +5,7 @@ function generateInputFields(numFields) {
     for (let i = 1; i <= numFields; i++) {
         const input = document.createElement('input');
         input.type = 'text';
-        input.name = 'field' + i;
+        input.name = 'field' +i;
         input.placeholder = 'Field ' + i;
         input.required = true;
         inputContainer.appendChild(input);
